@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+	    <title>Detalles del Administrador</title>
+	</head>
+	<body>
+	    <h1>Detalles del Administrador</h1>
+	    <div>
+	        <label>Imagen de Perfil:</label>
+	        <span th:text="${admin.imagenPerfil}"></span>
+	    </div>
+	    <div>
+	        <label>Nombre:</label>
+	        <span th:text="${admin.nombre}"></span>
+	    </div>
+	    <div>
+	        <label>Apellido:</label>
+	        <span th:text="${admin.apellido}"></span>
+	    </div>
+	    <div>
+	        <label>Fecha de Nacimiento:</label>
+	        <span th:text="${admin.fechaNacimiento}"></span>
+	    </div>
+	    <div>
+	        <label>Edad:</label>
+	        <span th:text="${admin.edad}"></span>
+	    </div>
+	    <div>
+	        <label>Email:</label>
+	        <span th:text="${admin.email}"></span>
+	    </div>
+	    <div>
+	        <label>Usuario:</label>
+	        <span th:text="${admin.user}"></span>
+	    </div>
+	    <a href="/admin/">Volver</a>
+	</body>
+</html>

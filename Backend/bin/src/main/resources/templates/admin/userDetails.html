@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+	    <title>Detalles del Usuario</title>
+	</head>
+	<body>
+	    <h1>Detalles del Usuario</h1>
+	    <div>
+	        <label>Imagen de Perfil:</label>
+	        <span th:text="${users.imagenPerfil}"></span>
+	    </div>
+	    <div>
+	        <label>Nombre:</label>
+	        <span th:text="${users.nombre}"></span>
+	    </div>
+	    <div>
+	        <label>Apellido:</label>
+	        <span th:text="${users.apellido}"></span>
+	    </div>
+	    <div>
+	        <label>Fecha de Nacimiento:</label>
+	        <span th:text="${users.fechaNacimiento}"></span>
+	    </div>
+	    <div>
+	        <label>Edad:</label>
+	        <span th:text="${users.edad}"></span>
+	    </div>
+	    <div>
+	        <label>Email:</label>
+	        <span th:text="${users.email}"></span>
+	    </div>
+	    <div>
+	        <label>Usuario:</label>
+	        <span th:text="${users.user}"></span>
+	    </div>
+	    <div>
+	        <label>Cursos Finalizados:</label>
+	        <span th:text="${users.cursosCompletados}"></span>
+	    </div>
+	    <a href="/admin/user-list">Volver</a>
+	</body>
+</html>

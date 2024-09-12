@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+	    <title>Inicio</title>
+	</head>
+	<body>
+	    <h1>Bienvenido a la Aplicación de Gestión de Usuarios</h1>
+	    <nav>
+	        <ul>
+				<li><a th:href="@{/admin/{id}(id=${admin.id})}">Ver Info</a></li>
+	            <li><a href="/admin/list">Lista de Administradores</a></li>
+	            <li><a href="/admin/new">Crear Nuevo Administrador</a></li>
+	            <li><a href="/admin/user-list">Lista de Usuarios</a></li>
+	            <li><a href="/admin/new-user">Crear Nuevo Usuario</a></li>
+	        </ul>
+	    </nav>
+	    <form th:action="@{/logout}" method="post">
+	        <button type="submit">Cerrar Sesión</button>
+	    </form>
+	</body>
+</html>

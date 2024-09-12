@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+	    <title>Inicio</title>
+	</head>
+	<body>
+	    <h1>Bienvenido a la Aplicación de Gestión de Usuarios</h1>
+	    <nav>
+	        <ul>
+	            <li><a th:href="@{/users/{id}(id=${user.id})}">Ver Info</a></li>
+	        </ul>
+	    </nav>
+	    <form th:action="@{/logout}" method="post">
+	        <button type="submit">Cerrar Sesión</button>
+	    </form>
+	</body>
+</html>

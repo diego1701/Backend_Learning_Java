@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+	    <title>Editar Usuario</title>
+	</head>
+	<body>
+	    <h1>Editar Usuario</h1>
+	    <form th:action="@{/users/{id}(id=${users.id})}" th:object="${users}" method="post">
+	        <div>
+	            <label>Imagen de Perfil:</label>
+	            <input type="text" th:field="*{imagenPerfil}" />
+	        </div>
+	        <div>
+	            <label>Nombre:</label>
+	            <input type="text" th:field="*{nombre}" />
+	        </div>
+	        <div>
+	            <label>Apellido:</label>
+	            <input type="text" th:field="*{apellido}" />
+	        </div>
+	        <div>
+	            <label>Fecha de Nacimiento:</label>
+	            <input type="date" th:field="*{fechaNacimiento}" />
+	        </div>
+	        <div>
+	            <label>Email:</label>
+	            <input type="email" th:field="*{email}" />
+	        </div>
+	        <div>
+	            <label>Usuario:</label>
+	            <input type="text" th:field="*{user}" />
+	        </div>
+	        <div>
+	            <button type="submit">Guardar</button>
+	        </div>
+	    </form>
+	    <a href="/users/">Volver</a>
+	</body>
+</html>
