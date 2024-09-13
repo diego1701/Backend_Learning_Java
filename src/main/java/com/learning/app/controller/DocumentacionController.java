@@ -8,49 +8,28 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Autowired;
 
+import com.learning.app.entity.Course;
 import com.learning.app.entity.Documentacion;
+import com.learning.app.repository.DocumentosRepository;
 import com.learning.app.service.DocumentacionService;
 
 @RestController
 @RequestMapping("/documentacion")
 public class DocumentacionController {
-
-	private DocumentacionService documentacionService;
 	
-	public DocumentacionController(DocumentacionService documentacionService) {
-		super();
-		this.documentacionService = documentacionService;
-	}
+	@Autowired
+	private DocumentosRepository documentacionService;
 	
-	@GetMapping("/{id}")
-	public ResponseEntity<byte[]> verArchivo(@PathVariable String id) {
-		Documentacion archivo = documentacionService.obtenerArchivoPorId(id);
-		
-		if (archivo != null) {
-			return ResponseEntity.ok()
-					.header(HttpHeaders.CONTENT_DISPOSITION, "inline; filename=\"" + archivo.getTitulo() + "\"")
-					.header(HttpHeaders.CONTENT_TYPE, archivo.getTipo())
-					.body(archivo.getContenido());
-		}
-		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-	}
 	
-	@GetMapping("/descargar/{id}")
-	public ResponseEntity<byte[]> descargarArchivo(@PathVariable String id) {
-		Documentacion archivo = documentacionService.obtenerArchivoPorId(id);
-		
-		if (archivo != null) {
-			return ResponseEntity.ok()
-					.header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + archivo.getTitulo() + "\"")
-					.header(HttpHeaders.CONTENT_TYPE, archivo.getTipo())
-					.body(archivo.getContenido());
-		}
-		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-	}
-	
-	@GetMapping("/listar")
-	public List<Documentacion> listarArchivos() {
-		return documentacionService.listarArchivos();
+	@GetMapping("/list")
+	public ResponseEntity <List<Documentacion>> listarArchivos() {
+		 try {
+	            List<Documentacion> docs = documentacionService.findAll();
+	            return new ResponseEntity<>(docs, HttpStatus.OK);
+	        } catch (Exception e) {
+	            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+	        }
 	}
 }
