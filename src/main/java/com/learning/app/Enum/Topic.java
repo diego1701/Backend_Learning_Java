@@ -13,5 +13,8 @@ public enum Topic {
 	Clases,
 	Funciones,
 	Framework,
+	NoSQL,
+	SQL,
+	EstructurasDeDatos,
 	Sintaxis;
 }
