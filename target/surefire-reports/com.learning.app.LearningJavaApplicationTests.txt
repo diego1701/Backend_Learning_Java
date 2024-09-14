@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.learning.app.LearningJavaApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 312.0 s -- in com.learning.app.LearningJavaApplicationTests
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 50.26 s -- in com.learning.app.LearningJavaApplicationTests

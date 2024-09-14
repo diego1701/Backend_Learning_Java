@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -128,5 +129,18 @@ public class CommentController {
 		} else {
 			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 		}
+	}
+	
+	//Eliminar comentario
+	@DeleteMapping("/{id}")
+	public ResponseEntity<Void> deleteComment(@PathVariable("id") String id) {
+		Comentarios comentario = commentRepository.findById(id).orElse(null);
+		
+		if (comentario == null) {
+			return ResponseEntity.notFound().build();
+		}
+		
+		commentRepository.deleteById(id);
+		return ResponseEntity.noContent().build();
 	}
 }
